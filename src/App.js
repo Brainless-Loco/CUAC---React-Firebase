@@ -2,8 +2,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Header from './Components/Header/Header';
 import Gallery from './Components/Gallery/Gallery';
@@ -28,7 +27,6 @@ function App() {
           <Route path={["/Events" , "/events" , "/Tours" , "tours"]} exact component={Tours}/>
           <Route path={["/Blogs" , "/blogs"]} exact component={Blogs}/>
           <Route path={["/Join-us" , "/join-us" , "/Join-CUAC"]} exact component={JoinUs}/>
-
         </Switch>
         <Footer></Footer>
       </Router>

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
-    let menuList = ["Home","Events","Memories","Join-us"]
+    let menuList = ["Home","Memories","Events", "Blogs","Join-us"]
     return (
         <div className="header">
-            <img className="logo uk-animation-slide-left" src='./Image/logo.png' alt=""/>
+            <Link to="/"><img className="logo uk-animation-slide-left" src='./Image/logo.png' alt=""/></Link>
             <div className="text-md-right">
                 <ul class="menu ml-0 mb-5 pr-1">
                     <div className="col-10 mx-auto">

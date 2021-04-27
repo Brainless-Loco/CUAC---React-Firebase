@@ -6,6 +6,9 @@
 html{
   scroll-behavior: smooth;
 }
+body{
+  background-color: #ecf0f1;
+}
 ul,ol{
   list-style: none;
 }

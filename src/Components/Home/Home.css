@@ -1,0 +1,33 @@
+.home-first{
+    height: 650px;
+    width: 100%;
+    background-image: url('https://picsum.photos/800/500?grayscale&blur=2');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+    z-index: 5;
+}
+.slide-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.join-us-button{
+    
+    padding: 12px;
+    color: #FAFA00;
+    font-size: 30px;
+    font-weight: 700;
+    border-bottom: 2.5px solid #016DB2;
+    border-radius: 15px;
+    transition: all .5s ease-in-out;
+    background-color:#E70101;
+}
+.join-us-button:hover{
+    color: #ecec33;
+    background-color: #bb0505;
+    text-decoration: none;
+}
