@@ -12,6 +12,14 @@ class LoginForm extends React.Component {
         this.handleLoginButtonClick = this.handleLoginButtonClick.bind(this);
     }
 
+    componentDidMount() {
+        this.setState({isProcessing: false});
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('click', this.handleLoginButtonClick);
+    }
+
     render() {
         if(this.state.isProcessing) return <p>Loading...</p>;
         return(
@@ -51,11 +59,12 @@ class LoginForm extends React.Component {
         res.then((obj) => {
             if(obj.status === Status.OK) {
                 this.props.authCallback(fireAuth.currentUser);
+                
                 console.log("Logged in");
             } else {
                 alert(obj.error.message);
             }
-            this.setState({isProcessing: false});
+            
         });
     }
 }

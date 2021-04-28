@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import { firebaseStorage } from '../../Firebase';
 import { Strings } from '../../Utilities/Constants';
@@ -195,22 +194,6 @@ const JoinUs = () => {
                         }
                     }>Submit</button>
             </form>
-=======
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import './JoinUs.css';
-import $ from 'jquery';
-
-const JoinUs = () => {
-    $('.header').addClass("bg-color-1");
-    $('.header .logo').addClass("bg-color-1");
-    return (
-        <div>
-            <Helmet>
-                <title>Join CUAC</title>
-            </Helmet>
-            Join Us
->>>>>>> 1e88636db6e611b103aaf43f1c7de8bd33518d5c
         </div>
     );  
 };
