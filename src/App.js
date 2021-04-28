@@ -23,6 +23,7 @@ function App() {
       </div>
       
       <Router>
+        <Header></Header>
         <Switch>
           <Route path={["/" , "/home" , "/Home"]} exact component={Home}/>
           <Route path={["/Gallery" , "/gallery" , "/photos"] }  component={Gallery}/>

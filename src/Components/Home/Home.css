@@ -18,16 +18,16 @@
 .join-us-button{
     
     padding: 12px;
-    color: #FAFA00;
+    color: #e3e3e4;
     font-size: 30px;
     font-weight: 700;
     border-bottom: 2.5px solid #016DB2;
     border-radius: 15px;
-    transition: all .5s ease-in-out;
-    background-color:#E70101;
+    transition: all .5s;
+    background-color: #102772;
 }
 .join-us-button:hover{
-    color: #ecec33;
-    background-color: #bb0505;
+    color: #102772;
+    background-color: #e3e3e4;
     text-decoration: none;
 }

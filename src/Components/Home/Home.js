@@ -5,6 +5,7 @@ import './Home.css';
 import $ from 'jquery';
 import About from '../AboutSection/About';
 import Count from '../CountSection/Count';
+import HomeMemories from '../HomeMemories/HomeMemories';
 
 const Home = () => {
     $('.header').removeClass("bg-color-1");
@@ -27,6 +28,7 @@ const Home = () => {
             </div>
             <About/>
             <Count/>
+            <HomeMemories/>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. In nostrum vero iste voluptate quod? Officiis libero quo iure aperiam facilis quasi? Provident, ex? Hic molestiae consequuntur nemo expedita recusandae, molestias odit voluptate. Explicabo labore, modi, omnis esse necessitatibus odio tempore quasi veritatis ducimus cupiditate deserunt odit. Neque hic deleniti commodi!
             </p>
