@@ -8,10 +8,16 @@
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+<<<<<<< HEAD
     "dotenv": "^8.2.0",
     "firebase": "^8.4.1",
+=======
+    "jquery": "^3.6.0",
+>>>>>>> 1e88636db6e611b103aaf43f1c7de8bd33518d5c
     "react": "^17.0.2",
+    "react-countup": "^4.3.3",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "rxjs": "^6.6.7",
