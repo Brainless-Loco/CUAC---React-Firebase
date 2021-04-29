@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet';
 import $ from 'jquery';
 
 const Blogs = () => {
-    // $('.header').addClass("bg-color-1");
-    // $('.header .logo').addClass("bg-color-1");
+    $('.header').addClass("bg-color-1");
+    $('.header .logo').addClass("bg-color-1");
     return (
         <div>
             <Helmet>

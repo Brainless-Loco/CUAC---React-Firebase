@@ -1,5 +1,4 @@
 import React from 'react';
-import CountUp from 'react-countup';
 import './Count.css';
 import CountEachSection from './CountEach/CountEachSection';
 
