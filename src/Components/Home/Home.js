@@ -16,7 +16,7 @@ const Home = () => {
                 <title> CUAC | Chittagong University Advenchar Club</title>
             </Helmet>
             <div className="home-first">
-                <div class="slideShow" uk-slideshow="finite: true;autoplay: true;autoplay-interval: 1200; velocity: .3; draggable:false; animation: scale">
+                {/* <div class="slideShow" uk-slideshow="finite: true;autoplay: true;autoplay-interval: 1200; velocity: .3; draggable:false; animation: scale">
 
                     <ul class="uk-slideshow-items">
                         {
@@ -26,7 +26,7 @@ const Home = () => {
                             )
                         }
                     </ul>
-                    </div>
+                </div> */}
                         
                 <div className="middle-center text-center">
                     <h1 className="text-white pb-0">Welcome to the world of Travellers</h1>
