@@ -1,0 +1,44 @@
+.EachMemory{
+    width: 300px;
+    background-color: whitesmoke;
+    overflow: hidden;
+    border-radius: 6px;
+    margin: 15px;
+    border: 1px solid #242a41;
+    box-shadow:  0px 2px 14px 1px rgba(0,0,0,0.42);
+    transition: all .5s;
+}
+.EachMemory .title{
+    padding: 5px;
+    margin: 0px;
+    /* background-color: #132055; */
+    color: rgb(24, 16, 16);
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+    transition: all .5s;
+}
+.EachMemory .date{
+    color: whitesmoke;
+    font-weight: 700;
+    font-size: 12px;
+    margin: 0px;
+    padding: 5px;
+    position: relative;
+    top: 30px;
+    left: -100px;
+    text-align: center;
+    background-color: #242a41;
+    transform: rotate(-45deg)
+}
+.EachMemory img{
+    height: 250px;
+    width: 250px;
+    object-fit: contain;
+}
+.EachMemory:hover{
+    transform: scale(1.1);
+}
+.EachMemory:hover a{
+    text-decoration: none !important;
+}

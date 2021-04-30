@@ -1,0 +1,30 @@
+.svg-bg{
+    background-image: url('../../Images/bg-1.png');
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: right;
+    background-position-y: 200px;
+    background-position-x: 1200px;
+}
+.see-more-button{
+    padding: 20px;
+    background-color: rgb(12, 42, 141);
+    color: white;
+    font-weight: 500;
+    font-size: 30px;
+    border-radius: 45px;
+    border: 3px solid transparent;
+    transition: all .5s;
+}
+.see-more-button:hover{
+    text-decoration: none;
+    color: rgb(12, 42, 141);
+    background-color: white;
+    border: 3px solid rgb(12, 42, 141);
+}
+.glipse-title{
+    color: rgb(56, 53, 53);
+    font-weight: 700;
+    margin-bottom: 30px;
+}
