@@ -29,11 +29,16 @@ function App() {
           <Route path={["/Gallery" , "/gallery" , "/photos"] }  component={Gallery}/>
           <Route path={["/Blogs" , "/blogs"]} component={Blogs}/>
           <Route path={["/Join-Us" , "/join-us" , "/Join-CUAC"]} component={JoinUs}/>
-          <Route path='/admin' component={Admin}/>
           <Route path={["/Gallery" , "/gallery" , "/photos" , "/Memories"] } exact component={Gallery}/>
           <Route path={["/Events" , "/events" , "/Tours" , "tours"]} exact component={Tours}/>
           <Route path={["/Blogs" , "/blogs"]} exact component={Blogs}/>
+          
+          {/* Brute-force styled, look into the root of the problem, delete this afterwards.*/}
+          <div style={{marginTop: '96px'}}>
+            <Route path={['/admin']} component={Admin}/>
+          </div>
           <Route path={["/Join-us" , "/join-us" , "/Join-CUAC"]} exact component={JoinUs}/>
+          
         </Switch>
         <Footer></Footer>
       </Router>

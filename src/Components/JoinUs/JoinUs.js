@@ -97,7 +97,7 @@ const JoinUs = () => {
 
     // Markup
     return (
-        <div>
+        <div style={{marginTop: '96px'}}>
             {/* TODO: Implement photo upload function here.
                 Upload the photo to firestore and keep a reference of it in firestore.*/}
             <form>
