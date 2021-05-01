@@ -6,7 +6,7 @@ import $ from 'jquery';
 import About from '../AboutSection/About';
 import Count from '../CountSection/Count';
 import HomeMemories from '../HomeMemories/HomeMemories';
-import fakeData from '../../MOCK_DATA.json';
+import FormerComment from '../FormerComments/FormerComment';
 
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
                 <title> CUAC | Chittagong University Advenchar Club</title>
             </Helmet>
             <div className="home-first">
-                <div class="slideShow" uk-slideshow="finite: true;autoplay: true;autoplay-interval: 1200; velocity: .3; draggable:false; animation: scale">
+                <div className="slideShow" uk-slideshow="finite: true;autoplay: true;autoplay-interval: 1200; velocity: .3; draggable:false; animation: scale">
 
                     {/* <ul class="uk-slideshow-items">
                         {
@@ -43,6 +43,7 @@ const Home = () => {
             <About/>
             <Count/>
             <HomeMemories/>
+            <FormerComment/>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. In nostrum vero iste voluptate quod? Officiis libero quo iure aperiam facilis quasi? Provident, ex? Hic molestiae consequuntur nemo expedita recusandae, molestias odit voluptate. Explicabo labore, modi, omnis esse necessitatibus odio tempore quasi veritatis ducimus cupiditate deserunt odit. Neque hic deleniti commodi!
             </p>
