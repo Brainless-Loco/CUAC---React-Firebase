@@ -4,3 +4,6 @@
     background-size: cover;
     background-position: center;
 }
+.swiper-pagination{
+    bottom: -1% !important;
+}

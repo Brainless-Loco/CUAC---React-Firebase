@@ -8,7 +8,7 @@ const HomeMemories = () => {
     
     return (
         <div className="pb-5 pt-3 text-center svg-bg">
-            <h1 className="display-4 text-center glipse-title">A glimpse of Memories</h1>
+            <h1 className="display-4 text-center text-white glipse-title">A glimpse of Memories</h1>
             <div className="d-flex mb-5 justify-content-center flex-wrap"  uk-lightbox="animation: fade">
                 {
                     fakeData.map( Image =>  <HomeEachMemory imageURL={Image.imageSrc} Caption={Image.Caption} />)
