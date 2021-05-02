@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireAuth } from '../../Firebase';
-import AdminPanel from './AdminPanel';
-import LoginForm from './LoginForm';
+import AdminPanel from './AdminPanel/AdminPanel.js';
+import LoginForm from './AdminPanel/LoginForm.js';
 
 class Admin extends React.Component {
     constructor(props) {

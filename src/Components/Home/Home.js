@@ -6,6 +6,7 @@ import $ from 'jquery';
 import About from '../AboutSection/About';
 import Count from '../CountSection/Count';
 import HomeMemories from '../HomeMemories/HomeMemories';
+import { Strings } from '../../Utilities/Constants';
 
 const Home = () => {
     $('.header').removeClass("bg-color-1");
@@ -19,7 +20,8 @@ const Home = () => {
                 <div className="slide-center text-center">
                     <h1 className="text-white pb-0">Welcome to the world of Travellers</h1>
                     <p className="">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates magni quas veritatis!
+                        {/* Get a substring of 128 characters of the placeholder text */}
+                        {Strings.placeholder_text.substr(0, 128)}
                     </p>
                     <br/>
                     <Link to="/Join-us" className="join-us-button">Join us</Link>
@@ -30,10 +32,12 @@ const Home = () => {
             <Count/>
             <HomeMemories/>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. In nostrum vero iste voluptate quod? Officiis libero quo iure aperiam facilis quasi? Provident, ex? Hic molestiae consequuntur nemo expedita recusandae, molestias odit voluptate. Explicabo labore, modi, omnis esse necessitatibus odio tempore quasi veritatis ducimus cupiditate deserunt odit. Neque hic deleniti commodi!
+                {/* This gets a substring with 256 characters from the placeholder text. */}
+                {Strings.placeholder_text.substr(0, 256)}
             </p>
             <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi provident exercitationem officiis rerum, asperiores, inventore itaque iure illo expedita omnis, quia aliquid aspernatur beatae culpa corrupti dolores dolor at! Atque quis sed omnis natus blanditiis exercitationem modi ad vitae debitis, vero architecto, repudiandae totam eius excepturi consectetur magnam labore suscipit voluptates? Necessitatibus doloremque in quasi voluptatem quod nostrum laboriosam magni fuga voluptate expedita esse deserunt qui ea ab placeat consequuntur, facere repellat! Nostrum modi aut ratione. Possimus, quos. Quos eaque similique dignissimos, ipsa autem tempore id nam ducimus, temporibus ullam magni aliquid eius, asperiores quam magnam eos dolore officia quas!
+                {/* Get the whole placeholder text */}
+                {Strings.placeholder_text}
             </p>
         </div>
     );
