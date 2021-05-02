@@ -1,0 +1,9 @@
+.formersNoteSection{
+    background-image: url('../../Images/bg-2.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+.swiper-pagination{
+    bottom: -1% !important;
+}

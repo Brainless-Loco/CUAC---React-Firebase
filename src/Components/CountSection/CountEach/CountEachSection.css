@@ -11,8 +11,8 @@
     cursor: pointer;
 }
 .eachCount:hover{
-    background-color: #2456d6;
-    transform: scale(1.02);
+    background-color: #2b5fe2;
+    transform: scale(1.10);
 }
 .countUp{
     font-size: 70px;
