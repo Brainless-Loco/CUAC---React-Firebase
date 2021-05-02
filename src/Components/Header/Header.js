@@ -15,11 +15,11 @@ const Header = () => {
                         <hr className="menu-btn mt-3 mx-auto"/>
                     </div>
                     {
-                     menuList.map(LinkName => <li><Link to={"/"+LinkName} class="menu-btn mx-0">{LinkName}</Link></li>)
+                     menuList.map(LinkName => <li><Link to={"/"+LinkName} className="menu-btn mx-0">{LinkName}</Link></li>)
                     }
                 </ul>
-                <div class="menu-btn float-right">
-                    <i class="fas fa-bars"></i>
+                <div className="menu-btn float-right">
+                    <i className="fas fa-bars"></i>
                 </div>
             </div>
         </div>

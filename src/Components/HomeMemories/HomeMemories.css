@@ -1,11 +1,5 @@
 .svg-bg{
-    background-image: url('../../Images/bg-1.png');
-    background-size: 400px;
-    background-repeat: no-repeat;
-    background-attachment:fixed;
-    background-position: right;
-    background-position-y: 200px;
-    background-position-x: 1200px;
+    background-image: linear-gradient(to right, #0f0c29,#302b63,#24243e);
 }
 .see-more-button{
     padding: 20px;
@@ -13,7 +7,7 @@
     color: white;
     font-weight: 500;
     font-size: 30px;
-    border-radius: 45px;
+    border-radius: 10px;
     border: 3px solid transparent;
     transition: all .5s;
 }
