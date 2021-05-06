@@ -1,0 +1,10 @@
+.memoriesDiv{
+    padding-top: 100px;
+    min-height: 40vh;
+    background-color: #ecf0f1;
+}
+.memoriesDiv .memoryAlbums{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

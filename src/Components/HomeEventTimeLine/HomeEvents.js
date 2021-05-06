@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomeEvents.css';
 import { Link } from 'react-router-dom';
-import { Timeline, TimelineItem }  from 'vertical-timeline-component-for-react';
+import { Timeline }  from 'vertical-timeline-component-for-react';
 import AnEventDiv from '../HomeEvent/AnEventDiv';
 
 const HomeEvents = () => {

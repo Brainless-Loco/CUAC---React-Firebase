@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ContactUs.css';
 
 const ContactUs = () => {
@@ -9,17 +10,18 @@ const ContactUs = () => {
                 <p className="contact-us-text text-dark">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia explicabo in necessitatibus eum, facilis quidem! Omnis rerum temporibus mollitia molestiae impedit culpa nostrum perferendis consectetur expedita, exercitationem dicta laborum nulla accusantium consequuntur error vitae consequatur corrupti! Fuga ea ab eveniet.
                 </p>
-                <p className="text-dark ml-3 px-2">
-                    <h1 className="d-inline h1 text-color1 mr-3"> <i class="fas fa-envelope"></i> </h1> <a href="mailto::someting@gmail.com" className="h2 text-color1">admin@admin.com</a>
+                <div className="text-dark ml-3 px-2">
+                    <h1 className="d-inline h1 text-color1 mr-3"> <i className="fas fa-envelope"></i> </h1> <a href="mailto::someting@gmail.com" className="h2 text-color1">admin@admin.com</a>
                     <br/> <br />
-                    <h1 className="d-inline h1 text-color1 mr-3"> <i class="fab fa-facebook"></i> </h1> <a href="mailto::someting@gmail.com" className="h2 text-color1">admin@admin.com</a>
-                </p> 
+                    <h1 className="d-inline h1 text-color1 mr-3"> <i className="fab fa-facebook"></i> </h1> <a href="mailto::someting@gmail.com" className="h2 text-color1">admin@admin.com</a>
+                </div> 
             </div>
             <div className="col-md-6 float-left">
                 <form action="">
                     <input type="text" className="contactUsTextInput" placeholder="Name" name="" id="" />
                     <input type="text" className="contactUsTextInput" placeholder="Email" name="" id="" />
                     <textarea name="" id="" className="contactUsMessageInput contactUsTextInput" placeholder="Message"></textarea>
+                    <Link to="/join-us" type="submit" className="join-us-button">Send Message</Link>
                 </form>
             </div>
 

@@ -5,7 +5,6 @@ import './Home.css';
 import $ from 'jquery';
 import About from '../AboutSection/About';
 import Count from '../CountSection/Count';
-import fakeData from '../../MOCK_DATA.json';
 import HomeMemories from '../HomeMemories/HomeMemories';
 import FormerComment from '../FormerComments/FormerComment';
 import HomeEvents from '../HomeEventTimeLine/HomeEvents';

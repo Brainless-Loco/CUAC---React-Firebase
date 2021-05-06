@@ -1,0 +1,27 @@
+.memoryAlbum{
+    height: 330px;
+    width: 410px;
+    padding: 15px;
+    margin:15px;
+    background-color: whitesmoke;
+    border: 1px solid #102772;
+    -webkit-box-shadow: 0px 3px 21px 4px rgba(116, 117, 131, 0.84); 
+    box-shadow: 0px 3px 21px 4px rgba(116, 117, 131, 0.84);
+    transition: all .5s;
+    cursor: pointer;
+}
+.memoryAlbum:hover{
+    transform: scale(1.02);
+    -webkit-box-shadow: 0px 3px 21px 4px rgba(12, 12, 12, 0.84); 
+    box-shadow: 0px 3px 21px 4px rgba(12, 12, 12, 0.84);
+    text-decoration: none;
+}
+.memoryAlbum img{
+    height: 240px;
+    width: 100%;
+    background-color: #102772;
+    object-fit: cover;
+}
+.memoryAlbum .memoryAlbumDate{
+    font-weight: 600;
+}
