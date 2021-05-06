@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router';
 import { fireAuth } from '../../../Firebase';
 import BlogsMenu from '../BlogsComponent/BlogsMenu';
 import CreateNewBlogComponent from '../BlogsComponent/CreateNewBlogComponent';
-import ViewBlogs from '../BlogsComponent/ViewBlogs';
+import ViewBlogsAdmin from '../BlogsComponent/ViewBlogsAdmin';
 import MembersMenu from '../MembersComponent/MembersMenu';
 import ViewMembers from '../MembersComponent/ViewMembers';
 import ViewPendingMembers from '../MembersComponent/ViewPendingMembers';
@@ -26,7 +26,7 @@ class AdminPanel extends React.Component {
                     <Route path='/admin/members' component={ViewMembers}></Route>
                     <Route path='/admin/blog-db' component={BlogsMenu}></Route>
                     <Route path='/admin/create-new-blog' component={CreateNewBlogComponent}></Route>
-                    <Route path='/admin/blogs' component={ViewBlogs}></Route>
+                    <Route path='/admin/blogs' component={ViewBlogsAdmin}></Route>
                     <Route path='/admin' component={AdminMenu}></Route>
                 </Switch>
 

@@ -13,6 +13,7 @@ import JoinUs from './Components/JoinUs/JoinUs';
 import Admin from './Components/Admin/Admin';
 import { AuthProvider } from './Utilities/Auth';
 import Tours from './Components/Tours/Tours';
+import ViewBlog from './Components/Blogs/ViewBlog';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path={["/Gallery" , "/gallery" , "/photos" , "/Memories"] } exact component={Gallery}/>
           <Route path={["/Events" , "/events" , "/Tours" , "tours"]} exact component={Tours}/>
           <Route path={["/Blogs" , "/blogs"]} exact component={Blogs}/>
+          <Route path={['/view-blog', '/View-Blog', '/View-blog']} exact component={ViewBlog}></Route>
           
           {/* Brute-force styled, look into the root of the problem, delete this afterwards.*/}
           <div style={{marginTop: '96px'}}>

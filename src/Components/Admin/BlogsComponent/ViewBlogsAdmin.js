@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class ViewBlogs extends React.Component {
+class ViewBlogsAdmin extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -17,4 +17,4 @@ class ViewBlogs extends React.Component {
     }
 }
 
-export default ViewBlogs;
+export default ViewBlogsAdmin;

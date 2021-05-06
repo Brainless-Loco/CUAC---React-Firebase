@@ -66,15 +66,15 @@ class ViewPendingMembers extends React.Component{
         // Get total sizze of the collection
         sizeRef.get().then((doc) => {
             if (doc.exists) {
-                this.setState({ numberOfPages: Math.ceil(doc.data().size / 10) });
+                this.setState({ numberOfPages: Math.ceil(doc.data().size / Constants.dataLimitSM) });
                 console.log('Pending members count: ' + doc.data().size);
             } else {
                 console.log(`Error! Collection size references ${{ collection: CollectionNames.collection_counter, Document: CollectionNames.pending_members }} does not exist.`);
             }
         })
-            .catch((error) => {
-                console.log(error);
-            });
+        .catch((error) => {
+            console.log(error);
+        });
     }
     
     handlePageScroll = async (e, val) => {
