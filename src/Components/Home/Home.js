@@ -9,6 +9,7 @@ import fakeData from '../../MOCK_DATA.json';
 import HomeMemories from '../HomeMemories/HomeMemories';
 import FormerComment from '../FormerComments/FormerComment';
 import HomeEvents from '../HomeEventTimeLine/HomeEvents';
+import ContactUs from '../ContactUs/ContactUs';
 
 
 const Home = () => {
@@ -47,12 +48,7 @@ const Home = () => {
             <HomeEvents/>
             <HomeMemories/>
             <FormerComment/>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. In nostrum vero iste voluptate quod? Officiis libero quo iure aperiam facilis quasi? Provident, ex? Hic molestiae consequuntur nemo expedita recusandae, molestias odit voluptate. Explicabo labore, modi, omnis esse necessitatibus odio tempore quasi veritatis ducimus cupiditate deserunt odit. Neque hic deleniti commodi!
-            </p>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi provident exercitationem officiis rerum, asperiores, inventore itaque iure illo expedita omnis, quia aliquid aspernatur beatae culpa corrupti dolores dolor at! Atque quis sed omnis natus blanditiis exercitationem modi ad vitae debitis, vero architecto, repudiandae totam eius excepturi consectetur magnam labore suscipit voluptates? Necessitatibus doloremque in quasi voluptatem quod nostrum laboriosam magni fuga voluptate expedita esse deserunt qui ea ab placeat consequuntur, facere repellat! Nostrum modi aut ratione. Possimus, quos. Quos eaque similique dignissimos, ipsa autem tempore id nam ducimus, temporibus ullam magni aliquid eius, asperiores quam magnam eos dolore officia quas!
-            </p>
+            <ContactUs/>
         </div>
     );
 };

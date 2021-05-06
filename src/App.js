@@ -13,6 +13,7 @@ import JoinUs from './Components/JoinUs/JoinUs';
 import Admin from './Components/Admin/Admin';
 import { AuthProvider } from './Utilities/Auth';
 import Tours from './Components/Tours/Tours';
+import CreditDiv from './Components/CeditDiv/CreditDiv';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           
         </Switch>
         <Footer></Footer>
+        <CreditDiv/>
       </Router>
       
     </div>
