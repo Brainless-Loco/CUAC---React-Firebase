@@ -5,11 +5,11 @@ import './Home.css';
 import $ from 'jquery';
 import About from '../AboutSection/About';
 import Count from '../CountSection/Count';
-import fakeData from '../../MOCK_DATA.json';
 import HomeMemories from '../HomeMemories/HomeMemories';
 import { Strings } from '../../Utilities/Constants';
 import FormerComment from '../FormerComments/FormerComment';
 import HomeEvents from '../HomeEventTimeLine/HomeEvents';
+import ContactUs from '../ContactUs/ContactUs';
 
 
 const Home = () => {
@@ -49,14 +49,7 @@ const Home = () => {
             <HomeEvents/>
             <HomeMemories/>
             <FormerComment/>
-            <p>
-                {/* This gets a substring with 256 characters from the placeholder text. */}
-                {Strings.placeholder_text.substr(0, 256)}
-            </p>
-            <p>
-                {/* Get the whole placeholder text */}
-                {Strings.placeholder_text}
-            </p>
+            <ContactUs/>
         </div>
     );
 };

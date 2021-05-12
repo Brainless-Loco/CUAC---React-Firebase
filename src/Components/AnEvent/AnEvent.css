@@ -1,0 +1,49 @@
+.AnEvent{
+    margin: 5px;
+}
+.AnEvent .EventCover{
+    height: 300px;
+    border: 2px solid #fff;
+    background-color: #0c2461;
+    border-radius: 8px;
+    z-index: 10;
+    box-shadow: 0px 1px 12px 5px rgba(0,0,0,0.48);
+    -webkit-box-shadow: 0px 1px 12px 5px rgba(0,0,0,0.48);
+    -moz-box-shadow: 0px 1px 12px 5px rgba(0,0,0,0.48);
+}
+.AnEvent .EventCover img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+.AnEvent .EventDetails{
+    position: relative;
+    top: -60px;
+    left: 5%;
+    width: 90%;
+    background-color: #180174;
+    border: 2px solid whitesmoke;
+    min-height: 200px;
+    border-radius: 8px;
+    z-index: 2;
+    box-shadow: 0px 1px 12px 5px rgba(0,0,0,0.48);
+    -webkit-box-shadow: 0px 1px 12px 5px rgba(0,0,0,0.48);
+    -moz-box-shadow: 0px 1px 12px 5px rgba(0,0,0,0.48);
+}
+.AnEvent .full-details-button{
+    color: #0c2461;
+    font-weight: 700;
+    background-color: #ecf0f1;
+    padding: 10px;
+    outline: none;
+    border-radius: 6px;
+    background-color: white;
+    border: none;
+    transition: all .5s;
+}
+
+.AnEvent .full-details-button:hover{
+    box-shadow: 0px 0px 8px 1px rgba(255,255,255,0.54);
+    -webkit-box-shadow: 0px 0px 8px 1px rgba(255,255,255,0.54);
+    -moz-box-shadow: 0px 0px 8px 1px rgba(255,255,255,0.54);
+}
