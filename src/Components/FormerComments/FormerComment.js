@@ -2,7 +2,7 @@ import React from 'react';
 import OneComment from '../OneComment/OneComment';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Pagination } from 'swiper/core';
-import "swiper/components/pagination/pagination.min.css"
+import "swiper/components/pagination/pagination.min.css";
 import "swiper/swiper.min.css";
 import './FormerComment.css';
 
@@ -18,7 +18,7 @@ const FormerComment = () => {
 
                 {/* Ekhane ekta map cholbe Json Data er upore and OneComment e props jabe */}
 
-                <SwiperSlide  className="NoteSlide"> <OneComment/></SwiperSlide>
+                <SwiperSlide  className="NoteSlide"><OneComment/></SwiperSlide>
                 <SwiperSlide  className="NoteSlide "><OneComment/></SwiperSlide>
                 <SwiperSlide  className="NoteSlide"> <OneComment/></SwiperSlide>
                 <SwiperSlide  className="NoteSlide"><OneComment/></SwiperSlide>

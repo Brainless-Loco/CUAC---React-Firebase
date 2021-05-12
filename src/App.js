@@ -16,6 +16,7 @@ import Tours from './Components/Tours/Tours';
 import CreditDiv from './Components/CeditDiv/CreditDiv';
 import MemoryFullAlbum from './Components/MemoryFullAlbum/MemoryFullAlbum';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
+import ViewBlog from './Components/Blogs/ViewBlog';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path={["/Events" , "/events" , "/Tours" , "tours"]} exact component={Tours}/>
           <Route path={["/Blogs" , "/blogs"]} exact component={Blogs}/>
           <Route path={["/MemoriesOF/:MemoryName"]} component={MemoryFullAlbum}/>
+          <Route path={['/view-blog', '/View-Blog', '/View-blog']} exact component={ViewBlog}></Route>
           {/* Brute-force styled, look into the root of the problem, delete this afterwards.*/}
           <div style={{marginTop: '96px'}}>
             <Route path={['/admin']} component={Admin}/>

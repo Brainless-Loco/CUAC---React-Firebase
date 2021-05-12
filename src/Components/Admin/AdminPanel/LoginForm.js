@@ -1,7 +1,7 @@
 import React from 'react';
-import { fireAuth } from '../../Firebase';
-import { Status } from '../../Utilities/Constants';
-import { login } from '../../Utilities/FirebaseUtils';
+import { fireAuth } from '../../../Firebase';
+import { Status } from '../../../Utilities/Constants';
+import { login } from '../../../Utilities/FirebaseUtils';
 
 class LoginForm extends React.Component {
     constructor(props) {

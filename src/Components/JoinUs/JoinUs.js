@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { firebaseStorage } from '../../Firebase';
-import { Strings } from '../../Utilities/Constants';
-import { postPendingMemberInformation } from '../../Utilities/FirebaseUtils';
+import { CollectionNames, Strings } from '../../Utilities/Constants';
+import { postIntoCollection, postPendingMemberInformation } from '../../Utilities/FirebaseUtils';
 
 const JoinUs = () => {
     // States
@@ -83,11 +83,11 @@ const JoinUs = () => {
                         formInfo.imageLink = dwnUrl;
                     });
 
-                    postPendingMemberInformation(formInfo);
+                    postIntoCollection(formInfo, CollectionNames.pending_members);
                 }
             );
         } else {
-            postPendingMemberInformation(formInfo);
+            postIntoCollection(formInfo, CollectionNames.pending_members);
         }
 
         

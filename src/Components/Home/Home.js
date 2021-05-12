@@ -6,6 +6,7 @@ import $ from 'jquery';
 import About from '../AboutSection/About';
 import Count from '../CountSection/Count';
 import HomeMemories from '../HomeMemories/HomeMemories';
+import { Strings } from '../../Utilities/Constants';
 import FormerComment from '../FormerComments/FormerComment';
 import HomeEvents from '../HomeEventTimeLine/HomeEvents';
 import ContactUs from '../ContactUs/ContactUs';
@@ -35,7 +36,8 @@ const Home = () => {
                 <div className="middle-center text-center">
                     <h1 className="text-white pb-0">Welcome to the world of Travellers</h1>
                     <p className="">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates magni quas veritatis!
+                        {/* Get a substring of 128 characters of the placeholder text */}
+                        {Strings.placeholder_text.substr(0, 128)}
                     </p>
                     <br/>
                     <Link to="/Join-us" className="join-us-button">Join us</Link>
