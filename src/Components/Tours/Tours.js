@@ -21,7 +21,7 @@ const Tours = () => {
                 <AnEvent/>
             </div>
 
-            <h1 className="display-4 font-weight-bold text-color1 text-center py-2">Past Events</h1>
+            <h1 className="display-4 font-weight-bold text-color1 text-center py-1">Past Events</h1>
             <div className="col-md-9 col-lg-7 mx-auto">
                 <AnEvent/>
                 <AnEvent/>
