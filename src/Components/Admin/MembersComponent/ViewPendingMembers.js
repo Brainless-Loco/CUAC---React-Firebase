@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Pagination from '@material-ui/lab/Pagination';
+// import Pagination from '@material-ui/lab/Pagination';
 import { firestore } from '../../../Firebase';
 import { CollectionNames, Constants } from '../../../Utilities/Constants';
 
@@ -126,12 +126,12 @@ class ViewPendingMembers extends React.Component{
                     </tbody>
                 </table>
     
-                <Pagination 
+                {/* <Pagination 
                     count={this.state.numberOfPages} 
                     page={this.state.page} 
                     variant='outlined' 
                     shape='rounded'
-                    onChange={this.handlePageScroll}/>
+                    onChange={this.handlePageScroll}/> */}
             </div>
         );
     }

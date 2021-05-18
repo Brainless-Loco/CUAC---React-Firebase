@@ -4,7 +4,7 @@ import './AnEvent.css';
 
 
 
-    const {title, bannerLink, happeningAt, detailsMarkup} = props.data;
+ 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
 return <Slide direction="down" ref={ref} {...props} />;
@@ -12,8 +12,10 @@ return <Slide direction="down" ref={ref} {...props} />;
 
 
 const AnEvent = (props) => {
-    
+
+    const {title, bannerLink, happeningAt, detailsMarkup} = props.data;
     const [open, setOpen] = React.useState(false);
+
     return (
         <div className="AnEvent">
             <div className="EventCover">
@@ -50,23 +52,10 @@ const AnEvent = (props) => {
                             <img src="Image/logo.png" alt="" />
                         </div>
                         <div className="col-md-7 float-left">
-                            <h2 className="h2 my-0 title text-color1">Here will be a title</h2>
-                            <h5 className="my-1 text-dark font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum qui vel aut dignissimos consectetur ipsam, impedit incidunt sit voluptate aliquam?</h5>
-                            <ul className="border border-dark rounded p-3">
-                                <li className="py-1"><span className="font-weight-700">Start Date: </span> 15 July, 2025</li>
-
-                                <li className="py-1"><span className="font-weight-700">End Date: </span> 15 July, 2025</li>
-                                
-                                <li className="py-1"><span className="font-weight-700">Est Budget: </span> 1500 BDT Only</li>
-                                
-                                <li className="py-1"><span className="font-weight-700">End Date: </span> 15 July, 2025</li>
-                            </ul>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, minus ipsa sapiente modi quos et iste id praesentium, nisi laudantium accusamus aliquid possimus numquam excepturi consequuntur impedit sunt officia deserunt itaque. Debitis mollitia nulla doloribus iusto harum sit et, asperiores veniam eum consequatur fugiat aliquam cum quibusdam fuga rem! Adipisci?
-                                <br />
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, officia inventore dolorum ut non ad facere debitis maxime! Repellat dolore ea laboriosam odio modi labore eaque ipsa voluptatibus alias reprehenderit, neque provident numquam veniam nostrum accusamus reiciendis fugiat deserunt. Architecto repellendus distinctio dignissimos magni, cum quibusdam unde non molestias obcaecati sed quidem libero eaque assumenda. Voluptas ab excepturi reiciendis architecto nobis totam consequatur, quisquam
-                                <br />
-                            </p>
+                            <h2 className="h2 my-0 title text-color1">{title}</h2>
+                            <div className="details-wrapper">
+                                {detailsMarkup}
+                            </div>
                         </div>
                     </div>
                 </Dialog>
