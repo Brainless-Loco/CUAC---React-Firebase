@@ -4,6 +4,9 @@ import { fireAuth } from '../../../Firebase';
 import BlogsMenu from '../BlogsComponent/BlogsMenu';
 import CreateNewBlogComponent from '../BlogsComponent/CreateNewBlogComponent';
 import ViewBlogsAdmin from '../BlogsComponent/ViewBlogsAdmin';
+import CreateNewEvent from '../EventsComponent/CreateNewEvent';
+import EventsMenu from '../EventsComponent/EventsMenu';
+import ViewEvents from '../EventsComponent/ViewAllEvents';
 import MembersMenu from '../MembersComponent/MembersMenu';
 import ViewMembers from '../MembersComponent/ViewMembers';
 import ViewPendingMembers from '../MembersComponent/ViewPendingMembers';
@@ -27,6 +30,9 @@ class AdminPanel extends React.Component {
                     <Route path='/admin/blog-db' component={BlogsMenu}></Route>
                     <Route path='/admin/create-new-blog' component={CreateNewBlogComponent}></Route>
                     <Route path='/admin/blogs' component={ViewBlogsAdmin}></Route>
+                    <Route path='/admin/event-db' component={EventsMenu}></Route>
+                    <Route path='/admin/create-new-event' component={CreateNewEvent}></Route>
+                    <Route path='/admin/events' component={ViewEvents}></Route>
                     <Route path='/admin' component={AdminMenu}></Route>
                 </Switch>
 

@@ -36,7 +36,7 @@ class Blogs extends React.Component{
         const data = [];
         const collRef = firestore.collection(CollectionNames.blogs);
 
-        const query = collRef.orderBy('title')
+        const query = collRef.orderBy('createdAt', 'desc')
                             .startAfter(this.state.lastNode == null ? '' : this.state.lastNode.title)
                             .limit(Constants.dataLimitSM);
         
@@ -45,7 +45,7 @@ class Blogs extends React.Component{
                 data.push(obj);
             });
             
-            data.sort((a, b) => {return a.data().createdAt > b.data().createdAt;});
+            //data.sort((a, b) => {return a.data().createdAt > b.data().createdAt;});
             this.setState({data: data, isFetchingData: false, firstNode: snapshot.docs[0], lastNode: snapshot.docs[snapshot.docs.length - 1]});
             if(snapshot.docs.length) this.nodeStack.push(snapshot.docs[0]);
             console.log('first node: ' + this.state.firstNode.data().title + 
@@ -64,7 +64,7 @@ class Blogs extends React.Component{
 
         this.nodeStack.pop();
         
-        const query = collRef.orderBy('title')
+        const query = collRef.orderBy('createdAt', 'desc')
                             .startAt(this.nodeStack[this.nodeStack.length - 1])
                             .limit(Constants.dataLimitSM);
         
@@ -76,7 +76,7 @@ class Blogs extends React.Component{
                 data.push(obj);
             });
 
-            data.sort((a, b) => {return a.data().createdAt > b.data().createdAt;});
+            //data.sort((a, b) => {return b.data().createdAt - a.data().createdAt;});
             this.setState({data: data, isFetchingData: false, firstNode: snapshot.docs[0], lastNode: snapshot.docs[snapshot.docs.length - 1]});
             if(snapshot.docs.length) this.nodeStack.push(snapshot.docs[0]);
             console.log('first node: ' + this.state.firstNode.data().title + 
@@ -144,7 +144,7 @@ class Blogs extends React.Component{
                             {this.state.data.map((val, idx) => {
                                 return (
                                     <li key={idx}>
-                                        Title: {val.data().title}, Published: {val.data().published},
+                                        Title: {val.data().title}, Published: {val.data().published}, 
                                         <Link to={location => `/view-blog?viewId=${val.id}`}>View</Link>
                                     </li>
                                 )

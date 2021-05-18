@@ -99,7 +99,7 @@ class CreateNewBlogComponent extends React.Component {
 
         this.uploadToStorage = async (imageURL, title, idx) => {
             //                              Get the UNIX time of upload as a seed, get file name
-            const filePath = `/uploads/blogs/${title}/${title}_${idx}_${(new Date()).getTime()}`;
+            const filePath = `/uploads/${CollectionNames.blogs}/${title}/${title}_${idx}_${(new Date()).getTime()}`;
             
             // Get reference in the storage bucket
             const fileRef = firebaseStorage.ref(filePath);
@@ -141,7 +141,7 @@ class CreateNewBlogComponent extends React.Component {
                                 const now = new Date();
                                 const task = Promise.resolve(
                                     postIntoCollection(
-                                        {title: title, markup: articleMarkup, published: now.toDateString()},
+                                        {title: title, markup: articleMarkup, published: now.toDateString(), createdAt: now.getTime() },
                                         CollectionNames.blogs)
                                 );
                                 

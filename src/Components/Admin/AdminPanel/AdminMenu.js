@@ -11,7 +11,7 @@ class AdminMenu extends React.Component {
                         <Link to='/admin/member-db'>Member database</Link>
                     </li>
                     <li>
-                        <Link to='#'>Event database</Link>
+                        <Link to='/admin/event-db'>Event database</Link>
                     </li>
                     <li>
                         <Link to='#'>Photo database</Link>

@@ -5,6 +5,7 @@ const CollectionNames = {
     affiliates: 'affiliates',
     items: 'items',
     blogs: 'blogs',
+    events: 'events',
     pending_members: 'pending_members',
     collection_counter: 'collection_counter'
 }
@@ -76,5 +77,14 @@ const CharAlphaLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
 const CharAlphaUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
                         'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
                         'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+                        // date: Date
+export const toISODate = (date) => {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    
+    return year + '-' + String(month).padStart(2, '0') + '-' + String(day).padStart(2, 0);
+}
 
 export {CollectionNames, ErrorMessages, WarningMessages, Strings, Status, Constants, CharNumber, CharAlphaLower, CharAlphaUpper};
