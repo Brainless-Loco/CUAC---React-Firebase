@@ -54,12 +54,12 @@ const Tours = () => {
             {/* Ekhane ekta Map cholbe */}
             {/* Chalailam manchitro */}
             <div className="col-md-9 col-lg-7 mx-auto">
-                {isFetching && <p>Loading...</p>}
                 {upcomingEvents.map((obj, idx) => {
                     console.log(obj.data());
                     return <AnEvent data={obj.data()} docId={obj.id}></AnEvent>
                 })}
             </div>
+            {isFetching && <p>Loading...</p>}
             <button type='button' onClick={getNextEvents} disabled={hasReachedTheEnd || isFetching}>Show more...</button>
 
 
