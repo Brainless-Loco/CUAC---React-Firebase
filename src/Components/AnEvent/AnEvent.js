@@ -2,18 +2,18 @@ import { AppBar, Dialog, Slide, Toolbar, Typography } from '@material-ui/core';
 import React from 'react';
 import './AnEvent.css';
 
+    
 
-
-    const {title, bannerLink, happeningAt, detailsMarkup} = props.data;
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-return <Slide direction="down" ref={ref} {...props} />;
-});
 
 
 const AnEvent = (props) => {
-    
+    const {title, bannerLink, happeningAt, detailsMarkup} = props.data;
     const [open, setOpen] = React.useState(false);
+    
+    const Transition = React.forwardRef(function Transition(props, ref) {
+        return <Slide direction="down" ref={ref} {...props} />;
+    });
+
     return (
         <div className="AnEvent">
             <div className="EventCover">
