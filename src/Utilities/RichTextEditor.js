@@ -144,8 +144,13 @@ class RichTextEditor extends React.Component {
             editorState={editorState}
             onToggle={this.toggleBlockType}
             />
+            
+            <InlineStyleControls
+            editorState={editorState}
+            onToggle={this.toggleInlineStyle}
+            />
 
-            <div className='attachment-control'>
+            {!this.props.textOnly && <div className='attachment-control'>
                 {/* Add Image button */}
                 <a><img src="https://img.icons8.com/officel/16/000000/add-image.png" 
                     onClick={() => this.insertImageRef.current.click()}/></a>
@@ -164,14 +169,11 @@ class RichTextEditor extends React.Component {
                         onBlur={() => {if(!this.state.linkInput.length) this.insertLinkRef.current.hidden = true;}}></input>
                     <button type='button' onClick={this.handleInsertLinkButton}>Insert</button>
                 </div>
-            </div>
+            </div> }
             
             
 
-            <InlineStyleControls
-            editorState={editorState}
-            onToggle={this.toggleInlineStyle}
-            />
+            
             <div className={className} onClick={this.focus}>
             <Editor
                 blockStyleFn={getBlockStyle}
