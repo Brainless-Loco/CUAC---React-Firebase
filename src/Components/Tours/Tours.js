@@ -62,7 +62,6 @@ const Tours = () => {
             </div>
             <button type='button' onClick={getNextEvents} disabled={hasReachedTheEnd || isFetching}>Show more...</button>
 
-            
 
         </div>
     );
