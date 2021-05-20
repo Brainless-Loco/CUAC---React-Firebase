@@ -26,9 +26,9 @@ $(function(){
         // removing smooth scroll on slide-up button click
         $('html').css("scrollBehavior", "auto");
     });
-    $('.menu-btn').on("click", function(){
-    $('.header .menu').toggleClass('active');
-    $('.menu-btn i').toggleClass('active');
+    $('.header .menu-btn').on("click", function(){
+        $('.header .menu').toggleClass('active');
+        $('.menu-btn i').toggleClass('active');
     });
 
 });

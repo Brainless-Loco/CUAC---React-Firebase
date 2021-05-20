@@ -1,6 +1,7 @@
 import React from 'react';
 import { firestore } from '../../Firebase';
 import { CollectionNames } from '../../Utilities/Constants';
+import './ViewBlog.css';
 
 class ViewBlog extends React.Component {
     constructor(props) {
@@ -30,9 +31,7 @@ class ViewBlog extends React.Component {
     render() {
         if(this.state.isFetchingData) {
             return (
-                <div>
-                    <br></br><br></br>
-                    <br></br><br></br>
+                <div className="article">
                     Loading query...
                     <p>{this.props.location.search}</p>
                 </div>
@@ -41,8 +40,6 @@ class ViewBlog extends React.Component {
             if(this.state.article.length) {
                 return (
                     <div className='article'>
-                        <br></br><br></br>
-                        <br></br><br></br>
                         <div ref={this.articleContainerRef} className='container'></div>
                     </div>
                 );

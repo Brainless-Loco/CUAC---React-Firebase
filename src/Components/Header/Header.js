@@ -7,7 +7,7 @@ const Header = () => {
     let menuList = ["Home","Memories","Events", "Blogs","Join-us"]
     return (
         <div className="header">
-            <Link to="/"><img className="logo uk-animation-slide-left" src={logo} alt="logo"/></Link>
+            <Link to="/"><img className="logo" src={logo} alt="logo"/></Link>
             <div className="text-md-right">
                 <ul className="menu ml-0 mb-5 pr-1">
                     <div className="col-10 mx-auto">

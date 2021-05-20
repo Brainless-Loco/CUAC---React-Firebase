@@ -44,6 +44,8 @@
 }
 .join-us-button:hover{
     color: #102772;
+    outline:none;
     background-color: #e3e3e4;
     text-decoration: none;
+    cursor: pointer;
 }

@@ -60,7 +60,7 @@ const Tours = () => {
                     return <AnEvent data={obj.data()} docId={obj.id}></AnEvent>
                 })}
             </div>
-            <button type='button' onClick={getNextEvents} disabled={hasReachedTheEnd || isFetching}>Show more...</button>
+            <button type='button' className="join-us-button" onClick={getNextEvents} disabled={hasReachedTheEnd || isFetching}>Show more...</button>
 
 
         </div>

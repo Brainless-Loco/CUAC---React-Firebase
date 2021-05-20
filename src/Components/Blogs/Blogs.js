@@ -1,12 +1,20 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import './Blogs.css';
 // import Pagination from '@material-ui/lab/Pagination';
 import { CollectionNames, Constants } from '../../Utilities/Constants';
 import { firestore } from '../../Firebase';
 import { Link } from 'react-router-dom';
+import $ from 'jquery';
+import { Fragment } from 'react';
 
 class Blogs extends React.Component{
+
+
     constructor(props) {
+        
+        $('.header').addClass("bg-color-1");
+        $('.header .logo').addClass("bg-color-1");
         super(props);
 
         this.state = {numberOfPages: 0, page: 1, isFetchingData: true, data: [], lastNode: null, firstNode: null};
@@ -115,42 +123,44 @@ class Blogs extends React.Component{
     
         this.setState({page: val});
     }
-
+    
     render() {
+        var CommonHTML =(
+                        <Fragment>
+                            <Helmet>
+                                <title>Blogs | CUAC</title>
+                            </Helmet>
+                             <h1 className="display-4 mt-0 font-weight-bold text-color1 text-center py-2">Welcome to CUAC Blogs</h1>
+                        </Fragment>);
         console.log(this.props.location.search);
         if(this.state.isFetchingData || !this.state.numberOfPages) {
             return(
-                <div>
-                    <Helmet>
-                        <title>Blogs | CUAC</title>
-                    </Helmet>
-                    <br/><br/><br/>
-                    <h1>This is blogs</h1>
-
+                <div className="Blogs">
+                    {CommonHTML}
                     <p>Loading...</p>
                 </div>
             );
         } else {
             return(
-                <div>
-                    <Helmet>
-                        <title>Blogs | CUAC</title>
-                    </Helmet>
-                    <br/><br/><br/>
-                    <h1>This is blogs</h1>
-                    
-                    <div>
-                        <ol>
-                            {this.state.data.map((val, idx) => {
-                                return (
-                                    <li key={idx}>
-                                        Title: {val.data().title}, Published: {val.data().published}, 
-                                        <Link to={location => `/view-blog?viewId=${val.id}`}>View</Link>
-                                    </li>
-                                )
-                            })}
-                        </ol>
-                        
+                <div className="Blogs">
+                   {CommonHTML}
+                    <div className="d-flex flex-wrap justify-content-center">
+                        {this.state.data.map((val, idx) => {
+                            return (
+                                <div className="blogSample col-md-5 col-lg-4 col-xl-3" key={idx}>
+                                    <div className="blog-banner">
+                                        <img src="Image/logo.png" alt="" />
+                                    </div>
+                                    <Link to={location => `/view-blog?viewId=${val.id}`} className="blog-title mb-0 pb-0 float-left">{val.data().title}</Link>
+                                    <p className="my-1 blog-basic-desc text-left">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste modi est esse quod voluptas similique.... 
+                                        <Link to={location => `/view-blog?viewId=${val.id}`}  className="mx-1 read-full rounded">Full Blog</Link> 
+                                    </p>
+                                     <small className="float-left text-dark font-weight-700">{val.data().published}</small>   
+                                    {/* <Link>View</Link> */}
+                                </div>
+                            )
+                        })}
                         {/* <Pagination
                             count={this.state.numberOfPages} 
                             page={this.state.page} 
