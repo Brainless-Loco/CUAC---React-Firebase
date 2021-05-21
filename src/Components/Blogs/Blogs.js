@@ -147,7 +147,7 @@ class Blogs extends React.Component{
                     <div className="d-flex flex-wrap justify-content-center">
                         {this.state.data.map((val, idx) => {
                             return (
-                                <div className="blogSample col-md-5 col-lg-4 col-xl-3" key={idx}>
+                                <div className="blogSample col-md-5 col-lg-4 col-xl-3" key={idx} uk-scrollspy="cls: uk-animation-fade;">
                                     <div className="blog-banner">
                                         <img src="Image/logo.png" alt="" />
                                     </div>

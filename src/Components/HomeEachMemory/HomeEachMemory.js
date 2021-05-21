@@ -3,7 +3,7 @@ import './HomeEachMemory.css';
 
 const HomeEachMemory = (props) => {
     return (
-        <div className="EachMemory mb-4 mx-3">
+        <div className="EachMemory mb-4 mx-3" >
             <img src={props.imageURL} alt=""/>
             <a className="uk-inline MemoryDescDiv" href={props.imageURL} data-type="image" data-caption={props.Caption} /* Ekhane Caption or behind the story Hobe */>
                 <div className="MemoryDescriptions">

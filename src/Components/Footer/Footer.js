@@ -12,7 +12,7 @@ const Footer = () => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo harum sequi est autem, impedit veniam!
                     </p>
                 </div>
-                <div className="col-md-5 mx-auto px-md-5 mt-4 text-left float-left">
+                <div className="col-md-5 mx-auto px-md-5 mt-5 text-left float-left">
                     <h4 className="h4 text-white mb-4">Important Links</h4>
                     <a href="http://" className="footerLinks" target="_blank" rel="noopener noreferrer"><i className="fas fa-at"></i> Email</a>
                     <a href="http://" className="footerLinks" target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube"></i> Youtube</a>

@@ -69,11 +69,11 @@
 
 
 @media (max-width: 947px){
-    .menu-btn{
+    .header .menu-btn{
         display: block;
         z-index: 9;
         font-size: 30px;
-        margin-top: 5%;
+        margin-top: 2%;
     }
     .menu-btn i.active:before{
         content: "\f00d";
@@ -83,7 +83,7 @@
         position: fixed;
         height: 100vh;
         width: 100%;
-        left: 100%;
+        left: -100%;
         background: #132055;
         text-align: center;
         transition: all 0.3s ease;

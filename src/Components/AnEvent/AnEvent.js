@@ -17,7 +17,7 @@ const AnEvent = (props) => {
     const [open, setOpen] = React.useState(false);
 
     return (
-        <div className="AnEvent">
+        <div className="AnEvent" uk-scrollspy="cls: uk-animation-slide-top">
             <div className="EventCover">
                 <img src={bannerLink} alt="" srcset="" />
             </div>

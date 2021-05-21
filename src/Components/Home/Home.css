@@ -32,7 +32,8 @@
     z-index: 10;
 }
 .join-us-button{
-    
+    border: none;
+    outline: none;
     padding: 12px;
     color: #e3e3e4;
     font-size: 30px;

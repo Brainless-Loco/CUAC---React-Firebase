@@ -15,7 +15,7 @@ const Gallery = () => {
             </Helmet>
             <h1 className="text-color1 text-center font-weight-bold">Memories of CUAC</h1>
 
-            <div className="memoryAlbums">
+            <div className="memoryAlbums" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .memoryAlbum; delay: 400; repeat: false">
                 {/* map through Database */}
 
                 <MemoryAlbum Name="One Event Name" date=""/>
