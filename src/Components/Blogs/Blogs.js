@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import Pagination from '@material-ui/lab/Pagination';
 import { CollectionNames, Constants } from '../../Utilities/Constants';
 import { firestore } from '../../Firebase';
 import { Link } from 'react-router-dom';
@@ -151,12 +150,12 @@ class Blogs extends React.Component{
                             })}
                         </ol>
                         
-                        <Pagination
+                        {/*<Pagination
                             count={this.state.numberOfPages} 
                             page={this.state.page} 
                             variant='outlined' 
                             shape='rounded'
-                            onChange={this.handlePageScroll}></Pagination>
+                        onChange={this.handlePageScroll}></Pagination>*/}
                     </div>
                 </div>
             );

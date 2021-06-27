@@ -7,6 +7,7 @@ import ViewBlogsAdmin from '../BlogsComponent/ViewBlogsAdmin';
 import CreateNewEvent from '../EventsComponent/CreateNewEvent';
 import EventsMenu from '../EventsComponent/EventsMenu';
 import ViewEvents from '../EventsComponent/ViewAllEvents';
+import Inventory from '../InventoryComponent/Inventory';
 import MembersMenu from '../MembersComponent/MembersMenu';
 import ViewMembers from '../MembersComponent/ViewMembers';
 import ViewPendingMembers from '../MembersComponent/ViewPendingMembers';
@@ -24,6 +25,7 @@ class AdminPanel extends React.Component {
                 <h3>Welcome {fireAuth.currentUser.uid}, do your thing here.</h3>
 
                 <Switch>
+                    <Route path='/admin/inventory' component={Inventory}></Route>
                     <Route path='/admin/member-db' component={MembersMenu}></Route>
                     <Route path='/admin/pending-members' component={ViewPendingMembers}></Route>
                     <Route path='/admin/members' component={ViewMembers}></Route>

@@ -1,6 +1,6 @@
 import { AppBar, Dialog, Slide, Toolbar, Typography } from '@material-ui/core';
 import React from 'react';
-import './AnEvent.css';
+import './FragmentEvent.css';
 
     
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -8,7 +8,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 
-class AnEvent extends React.Component {
+class FragmentEvent extends React.Component {
     constructor(props) {
         super(props);
 
@@ -18,7 +18,7 @@ class AnEvent extends React.Component {
 
     render() {
         return (
-            <div className="AnEvent" ref={this.props.nodeRef}>
+            <div className="FragmentEvent" ref={this.props.nodeRef}>
                 <div className="EventCover">
                     <img src={this.data.bannerLink} alt="" srcset="" />
                 </div>
@@ -80,4 +80,4 @@ class AnEvent extends React.Component {
     }
 }
 
-export default AnEvent;
+export default FragmentEvent;

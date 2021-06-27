@@ -1,140 +1,93 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
-import Pagination from '@material-ui/lab/Pagination';
 import { firestore } from '../../../Firebase';
 import { CollectionNames, Constants } from '../../../Utilities/Constants';
+import FragMemberDetails from '../../Fragments/FragmentMemberDetails/FragMemberDetails';
 
-class ViewPendingMembers extends React.Component{
-    // Keep a history of visited first nodes
-    nodeStack = [];
-    
-    constructor(props) {
-        super(props);
-        this.state = {numberOfPages: 0, page: 1, pendingMembers: null, isFetchingData: true, lastNode: null, firstNode: null};
-    }
-    
-    componentDidMount() {
-        this.getTotalNumberOfPages();
-    
-        this.getPageData('next');
-    }
-    
-    getPageData = async (scrollType) => {
-        //console.log(msg + ' ' + this.state.page);
-        this.setState({isFetchingData: true});
-    
-        // Get pending member data starting from a cursor with a limited number.
-        const data = [];
-        const collRef = firestore.collection(CollectionNames.pending_members);
-        
-        let query;
-        if(scrollType === 'next') {
-            query = collRef.orderBy('firstName')
-                        .startAfter(this.state.lastNode)
-                        .limit(Constants.dataLimitSM);
-        }
-        else {
-            this.nodeStack.pop();
-    
-            query = collRef.orderBy('firstName')
-                            .startAt(this.nodeStack[this.nodeStack.length - 1])
-                            .limit(Constants.dataLimitSM);
-            
-            if(this.nodeStack.length) this.nodeStack.pop();
-        }
-    
-        await query.get().then((snapshot) => {
-            snapshot.docs.forEach((obj) => {
-                data.push(obj.data());
-            });
-    
-            this.setState({pendingMembers: data, isFetchingData: false, firstNode: snapshot.docs[0], lastNode: snapshot.docs[snapshot.docs.length - 1]});
-            this.nodeStack.push(snapshot.docs[0]);
-            console.log('first node: ' + this.state.firstNode.data().firstName + 
-                        ' last node: ' + this.state.lastNode.data().firstName + 
-                        ' node stack: ' + this.nodeStack[this.nodeStack.length - 1].data().firstName);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }
-    
-    getTotalNumberOfPages() {
+const ViewPendingMembers = () => {
+    const [data, setData] = useState([]);
+    const [isFetching, setIsFetching] = useState(false);
+    const [pageCount, setPageCount] = useState(0);
+    const [previousPage, setPreviousPage] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
+    const dataLimit = Constants.dataLimitSM;
+
+    useEffect(() => {
+        getPageCount();
+        getData();
+    }, [currentPage, previousPage, pageCount]);
+
+    const getPageCount = async () => {
+        if(pageCount) return;
+
         const sizeRef = firestore.collection(CollectionNames.collection_counter).doc(CollectionNames.pending_members);
-    
+
         // Asynchronously get data from the firestore.
-        // Get total sizze of the collection
+        // Get total size of the collection
         sizeRef.get().then((doc) => {
-            if (doc.exists) {
-                this.setState({ numberOfPages: Math.ceil(doc.data().size / Constants.dataLimitSM) });
-                console.log('Pending members count: ' + doc.data().size);
-            } else {
-                console.log(`Error! Collection size references ${{ collection: CollectionNames.collection_counter, Document: CollectionNames.pending_members }} does not exist.`);
+            setPageCount(Math.ceil(doc.data().size / dataLimit));
+        }).catch((error) => console.log(error.message));
+    }
+
+    const getData = async () => {
+        if(!pageCount || isFetching || currentPage * dataLimit < data.length) return;
+
+        setIsFetching(true);
+        const collref = firestore.collection(CollectionNames.pending_members);
+
+        const query = collref.orderBy('firstName')
+                            .startAfter(!data.length ? '' : data[data.length - 1])
+                            .limit(dataLimit);
+        query.get().then((snapshot) => {
+            if(snapshot.docs.length) {
+                setData([...data, ...snapshot.docs]);
+                setIsFetching(false);
+                if(previousPage < currentPage) setPreviousPage(previousPage + 1);
             }
-        })
-        .catch((error) => {
-            console.log(error);
+        }).catch((error) => {
+            setIsFetching(false);
+            console.log(error.message);
         });
     }
-    
-    handlePageScroll = async (e, val) => {
-        if(val < this.state.page) {
-            for(let i = val ; i < this.state.page ; i++) await this.getPageData('prev');
-        } else {
-            for(let i = this.state.page ; i < val ; i++) await this.getPageData('next');
-        }
-    
-        this.setState({page: val});
+
+    const handlePageClick = (data) => {
+        setCurrentPage(data.selected);
     }
-    
-    render() {
-        if(!this.state.numberOfPages || this.state.isFetchingData) return <p>Loading...</p>;
-    
-        return (
-            <div>
-                <Link to='/admin/member-db'>Back</Link><br></br>
-                <Link to='/admin/'>Dashboard</Link><br></br>
-                <p>Currently at page: {this.state.page}</p>
-    
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Index</td>
-                            <td>First name</td>
-                            <td>Last name</td>
-                            <td>Student ID</td>
-                            <td>Department</td>
-                            <td>Avatar</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* Render fetched data in the table. */}
-                        {
-                            this.state.pendingMembers.map((val, idx) => {
-                                return (
-                                    <tr key={idx}>
-                                        <td>{idx + 1}</td>
-                                        <td>{val.firstName}</td>
-                                        <td>{val.lastName}</td>
-                                        <td>{val.studentID}</td>
-                                        <td>{val.department}</td>
-                                        <td><img src={val.imageLink} width='64px' height='64px'></img></td>
-                                    </tr>
-                                )
-                            })
-                        }
-                    </tbody>
-                </table>
-    
-                <Pagination 
-                    count={this.state.numberOfPages} 
-                    page={this.state.page} 
-                    variant='outlined' 
-                    shape='rounded'
-                    onChange={this.handlePageScroll}/>
-            </div>
-        );
-    }
+
+    return (
+        <div className='wrapper'>
+            <Link to='/admin/member-db'>Back</Link><br></br>
+            <Link to='/admin/'>Dashboard</Link><br></br>
+
+            {(isFetching || !pageCount) && <p>Loading...</p>}
+            {pageCount &&
+                <div>
+                    {!isFetching && 
+                        <div>
+                            {data.map((obj, idx) => {
+                                const idxVal = idx - dataLimit * currentPage;
+                                return (idxVal >= 0 && idxVal < dataLimit) ?
+                                    <FragMemberDetails data={obj.data()} isPending={true} key={idx}/> : null;
+                            })}
+                        </div> 
+                    }
+                    
+                    <ReactPaginate
+                        previousLabel={'previous'}
+                        nextLabel={'next'}
+                        breakLabel={'...'}
+                        breakClassName={'break-me'}
+                        pageCount={pageCount}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={handlePageClick}
+                        containerClassName={'pagination'}
+                        activeClassName={'active'}></ReactPaginate>
+                </div>
+            }
+        </div>
+    );
 }
 
 export default ViewPendingMembers;

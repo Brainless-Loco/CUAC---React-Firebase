@@ -20,7 +20,7 @@ class AdminMenu extends React.Component {
                         <Link to='/admin/blog-db'>Blog database</Link>
                     </li>
                     <li>
-                        <Link to='#'>Inventory</Link>
+                        <Link to='/admin/inventory'>Inventory</Link>
                     </li>
                 </ul>
             </div>

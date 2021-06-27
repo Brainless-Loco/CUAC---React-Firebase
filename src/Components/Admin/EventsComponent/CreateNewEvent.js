@@ -1,6 +1,5 @@
 import React, { createRef } from 'react';
-import DatePicker from 'react-datepicker';
-import { CollectionNames, toISODate, Constants, Strings } from '../../../Utilities/Constants';
+import { CollectionNames, toISODate, Constants, Strings, StoragePaths } from '../../../Utilities/Constants';
 import { postIntoCollection } from '../../../Utilities/FirebaseUtils';
 import { convertToHTML } from 'draft-convert';
 import RichTextEditor from '../../../Utilities/RichTextEditor';
@@ -16,56 +15,44 @@ class CreateNewEvent extends React.Component {
         this.tomorrow.setHours(0,0,0,0);
 
         this.editorRef = React.createRef();
-        this.state = {selectedDate: this.tomorrow, title: '', banner: null, bannerLink: '', editorState: {}};
+        this.state = {selectedStartDate: this.tomorrow, selectedEndDate: this.tomorrow, title: '', banner: null, bannerLink: '', editorState: {}, cost: 0};
+
+        this.setEditorReference = (ref) => {
+            this.editorRef = ref;
+        }
 
         this.handleSubmitButton = async () => {
             if(!this.state.title.length) {
-                alert('Event title cannot be empty.');
+                alert('Event title cannot be empty!');
                 return;
             }
 
-            let currentEditor = this.editorRef.current;
-            let active = currentEditor.state.editorState;
-            
-            if(active) {
-                // Get blocks of the editor
-                const blocks = active.getCurrentContent().getBlocksAsArray();
-                
-                if(blocks.length) {
-                    // Blocks found.
-                    // Get title from the first block
-                    let idx = -1;
-                    for(let i = 0 ; i < blocks.length ; i++) {
-                        if(blocks[i].getText().trim().length) {
-                            idx = i;
-                            break;
-                        }
-                    }
-                    
-                    if(idx < 0) {
-                        alert('Invalid document! The document has no content!');
-                        return;
-                    }
-                    
-                    // Get rich text as html code
-                    const articleMarkup = convertToHTML(active.getCurrentContent()).toString();
+            const editor = this.editorRef.current;
+            editor.selection.setCursorLocation(0);              // Reset the selection cursor
+            const firstElem = editor.selection.getNode();       // Get first element from the html representation
 
-                    this.uploadData({
-                        title: this.state.title, 
-                        detailsMarkup: articleMarkup, 
-                        happeningAt: this.state.selectedDate.getTime(),
-                        bannerLink: Strings.placeholder_image_link
-                    });
-                    
-                }
-                
+            if(!firstElem) {
+                alert('The document is empty!');
+                return;
             }
+
+            this.uploadData(
+                {
+                    title: this.state.title, 
+                    detailsMarkup: editor.getContent(), 
+                    happeningAt: this.state.selectedStartDate.getTime(), 
+                    startDate: this.state.selectedStartDate.toDateString(),
+                    endDate: this.state.selectedEndDate.toDateString(),
+                    cost: this.state.cost,
+                    bannerLink: Strings.placeholder_image_link
+                }
+            );
         }
 
         this.uploadData = (data) => {
             if(this.state.banner) {
                 // Upload user image to firebase storage
-                const filePath = `/uploads/${CollectionNames.events}/banner_${this.state.title}_${this.today.getTime()}`;
+                const filePath = StoragePaths.events + `banner_${this.state.title}_${this.today.getTime()}_${this.state.banner.name}`;
                 const fileRef = firebaseStorage.ref(filePath);
 
                 const uploadTask = fileRef.put(this.state.banner);
@@ -130,11 +117,32 @@ class CreateNewEvent extends React.Component {
                         />
                     </label><br></br>
                     <label>
-                        Happening date:
+                        Start date:
                         <input type='date' 
-                            value={toISODate(this.state.selectedDate)}
+                            value={toISODate(this.state.selectedStartDate)}
                             min={toISODate(this.tomorrow)}
-                            onChange={(e) => this.setState({selectedDate: new Date(e.target.value)})}></input>
+                            onChange={(e) => {
+                                this.setState({selectedStartDate: new Date(e.target.value)});
+                                
+                                if(this.state.selectedStartDate.getTime() > this.state.selectedEndDate.getTime())
+                                    this.setState({selectedEndDate: this.state.selectedStartDate});
+                            }}></input>
+                    </label><br></br>
+                    <label>
+                        End date:
+                        <input type='date' 
+                            value={toISODate(
+                                this.state.selectedEndDate.getTime() > this.state.selectedStartDate.getTime() ? 
+                                this.state.selectedEndDate : this.state.selectedStartDate)}
+                            min={toISODate(this.state.selectedStartDate)}
+                            onChange={(e) => this.setState({selectedEndDate: new Date(e.target.value)})}></input>
+                    </label><br></br>
+                    <label>
+                        Budget (per attendee):
+                        <input type='number'
+                            value={this.state.cost}
+                            min={0}
+                            onChange={(e) => this.setState({cost: e.target.value})}/>
                     </label><br></br>
                     <label>
                         Upload banner image:
@@ -142,11 +150,10 @@ class CreateNewEvent extends React.Component {
                         <br></br>
                     </label><br></br>
                 </form>
-                {this.state.banner && <p onClick={() => {return;}}>Found {this.state.banner.name}</p>}<br></br>
                 {this.state.banner && <div><img onClick={() => {return;}} src={URL.createObjectURL(this.state.banner)} height='128px' width='128px'></img></div>}
 
                 <p>Event details:</p>
-                <RichTextEditor ref={this.editorRef} textOnly={true}></RichTextEditor>
+                <RichTextEditor onEditorInit={this.setEditorReference}></RichTextEditor>
 
                 <br></br>
                 <input type='button' value='Submit' onClick={this.handleSubmitButton}></input>
