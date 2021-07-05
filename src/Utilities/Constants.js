@@ -1,5 +1,6 @@
 // These are collection names of Firebase's Firestore database.
 // Look up the firebase console for data structure and organization.
+
 const CollectionNames = {
     slides: 'slides',
     affiliates: 'affiliates',

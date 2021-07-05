@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import $ from 'jquery';
+import $, { data } from 'jquery';
 import './Tours.css';
 import AnEvent from '../AnEvent/AnEvent';
 import { firestore } from '../../Firebase';
@@ -23,7 +23,6 @@ const Tours = () => {
 
         const query = collRef.orderBy('happeningAt')
                             .startAfter(lastNode)
-                            .where('happeningAt', '>=', now.getTime())
                             .limit(Constants.dataLimitXSM);
 
         await query.get().then((snapshot) => {
@@ -51,9 +50,7 @@ const Tours = () => {
             </Helmet>
             <h1 className="display-4 mt-0 font-weight-bold text-color1 text-center py-2">Upcoming Events</h1>
 
-            {/* Ekhane ekta Map cholbe */}
-            {/* Chalailam manchitro */}
-            <div className="col-md-9 col-lg-7 mx-auto">
+            <div>
                 {upcomingEvents.map((obj, idx) => {
                     console.log(obj.data());
                     return <AnEvent data={obj.data()} docId={obj.id}></AnEvent>

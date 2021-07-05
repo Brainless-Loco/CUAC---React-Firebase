@@ -35,10 +35,20 @@ class CreateNewBlogComponent extends React.Component {
             editor.uploadImages().then(() => {
                 /* Post into firestore */
                 const now = new Date();
-                postIntoCollection(
+                /*postIntoCollection(
                     {title: title, markup: editor.getContent(), 
                         published: now.toDateString(), createdAt: now.getTime()}, 
-                    CollectionNames.blogs);
+                    CollectionNames.blogs);*/
+
+                // Post into mongo db collection using custom api
+                const markup = editor.getContent();
+                fetch(`http://localhost:9000/post-blog`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({title: title, body: markup})
+                })
+                .then((res) => console.log(res))
+                .catch((err) => console.log(err.message));
             });
         }
     }

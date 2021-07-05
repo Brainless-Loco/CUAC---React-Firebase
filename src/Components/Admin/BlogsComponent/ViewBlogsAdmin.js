@@ -43,6 +43,8 @@ const ViewBlogsAdmin = () => {
                             .limit(dataLimit);
         query.get().then((snapshot) => {
             if(snapshot.docs.length) {
+                snapshot.docs.map((data, idx) => console.log(data.data()));
+
                 setData([...data, ...snapshot.docs]);
                 setIsFetching(false);
                 if(previousPage < currentPage) setPreviousPage(previousPage + 1);
