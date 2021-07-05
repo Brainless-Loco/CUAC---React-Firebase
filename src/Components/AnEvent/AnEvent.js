@@ -17,7 +17,7 @@ const AnEvent = (props) => {
     const [open, setOpen] = React.useState(false);
 
     return (
-        <div className="AnEvent" uk-scrollspy="cls: uk-animation-slide-top">
+        <div className="AnEvent">
             <div className="EventCover">
                 <img src={bannerLink} alt="" srcset="" />
             </div>
@@ -58,10 +58,16 @@ const AnEvent = (props) => {
                             </div>
                         </div>
                     </div>
+    
+                    {/* I'll work on the 'cost' field later */}
+    
+                    <h5 className="text-left h5 my-1 text-white">Cost: 1500 BDT Only</h5>
+                    <button className="full-details-button" onClick={()=>this.setState({open: true})}>Full Details</button>
+    
+    
                 </Dialog>
-
+                </div>
             </div>
-        </div>
     );
 };
 
